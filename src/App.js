@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import ROUTES from "./routes";
+import Login from "./components/Login/login";
+import DashboardPage from "./pages/dashboardPage";
 
 function App() {
+  const { LOGIN, DASHBOARD, DEATILS, SELL } = ROUTES;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {" "}
+      <Router>
+        <Routes>
+          <Route exact path={LOGIN} element={<Login />} />
+          <Route exact path={DASHBOARD} element={<DashboardPage />} />
+          {/* <Route exact path={DE} element={<AppointmentPage />} /> */}
+          {/* <Route exact path={`${BLOG}/:blogs`} element={<BlogpostFormat />} />
+        <Route
+          exact
+          path={`${TREATMENT}/:treatments`}
+          element={<TreatmentServiceFormat />}
+        /> */}
+
+          {/* <Route component={Error} /> */}
+        </Routes>
+      </Router>
+    </>
   );
 }
 
